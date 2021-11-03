@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class ScreenE extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,12 +10,63 @@ class ScreenE extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),
-      body: Center(
-        child: Text(
-          '주문내역',
-          style: TextStyle(fontSize: 24.0),
-        ),
-      ),
+      body: Builder(builder: (context) {
+        return Center(
+          child: ListView(
+            padding: const EdgeInsets.all(10),
+            children: [
+              // Container(
+              //   height: 80,
+              //   child: ListTile(
+              //     title: Text('물건 이름', style: TextStyle(
+              //         color: Colors.black, fontSize: 20),),
+              //       tileColor: Colors.grey,
+              //       onTap: () {
+              //         Navigator.pushNamed(context, '/detail1');
+              //       }),
+              // ),
+              Container(
+                color: Colors.grey,
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width:200,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Text('물건 이름',style: TextStyle(fontSize: 20, color: Colors.black),),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('오석관 -> 벧엘관',style: TextStyle(fontSize: 20, color: Colors.black),),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      width: 110,
+                      height: 75,
+                      child: RaisedButton(
+                        color: Colors.yellow,
+                        child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                        onPressed: (){
+                          Navigator.pushNamed(context, '/detail1');
+                        },
+                      )
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      }),
     );
   }
 }

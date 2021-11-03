@@ -9,6 +9,7 @@ import 'sidebar/ScreenG.dart';
 import 'sidebar/ScreenH.dart';
 import 'sidebar/ScreenI.dart';
 import 'maps.dart';
+import 'detail1.dart';
 
 
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/h' : (context) => ScreenH(),
         '/i' : (context) => ScreenI(),
         '/map' : (context) => map(),
+        '/detail1' : (context) => detail1(),
       },
     );
 
