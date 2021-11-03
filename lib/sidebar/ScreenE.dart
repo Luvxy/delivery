@@ -55,7 +55,9 @@ class ScreenE extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.yellow,
                         child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.pushNamed(context, '/detail1');
+                        },
                       )
                     )
                   ],
