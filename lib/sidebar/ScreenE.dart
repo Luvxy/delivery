@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class ScreenE extends StatelessWidget {
+  var obname = '실내화';
+  var place = '오석관';
+  var place2 = '벧엘관';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,44 +29,334 @@ class ScreenE extends StatelessWidget {
               //         Navigator.pushNamed(context, '/detail1');
               //       }),
               // ),
-              Container(
-                color: Colors.grey,
-                height: 80,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width:200,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text('물건 이름',style: TextStyle(fontSize: 20, color: Colors.black),),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('오석관 -> 벧엘관',style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      width: 110,
-                      height: 75,
-                      child: RaisedButton(
-                        color: Colors.yellow,
-                        child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
-                        onPressed: (){
-                          Navigator.pushNamed(context, '/detail1');
-                        },
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        width: 110,
+                        height: 75,
+                        child: RaisedButton(
+                          color: Colors.yellow,
+                          child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                          onPressed: (){
+                            Navigator.pushNamed(context, '/detail1');
+                          },
+                        )
                       )
-                    )
-                  ],
+                    ],
+                  ),
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width:200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('$obname',style: TextStyle(fontSize: 20, color: Colors.black),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text('$place->$place2', style: TextStyle(fontSize: 20, color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                          width: 110,
+                          height: 75,
+                          child: RaisedButton(
+                            color: Colors.yellow,
+                            child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/detail1');
+                            },
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         );
