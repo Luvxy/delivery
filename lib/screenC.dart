@@ -6,7 +6,7 @@ class ScreenC extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('배달대기목록.'),
+        title: Text('배달대기목록'),
         backgroundColor: Colors.redAccent,
       ),
       body: Container(
