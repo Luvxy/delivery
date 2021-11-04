@@ -11,7 +11,7 @@ class ScreenD extends StatelessWidget {
         backgroundColor: Colors.redAccent,
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             Column(
               children: [

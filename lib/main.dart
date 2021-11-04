@@ -22,6 +22,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.purple,
+        accentColor: Colors.limeAccent,
+        brightness: Brightness.light,
+        fontFamily: 'Montserrat',
+      ),
       initialRoute: '/',
       routes: {
         '/' : (context) => ScreenA(),
