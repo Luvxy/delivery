@@ -6,7 +6,7 @@ class ScreenD extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('공지사항'),
+        title: Text('공지공지'),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),
