@@ -16,31 +16,43 @@ class ScreenI extends StatelessWidget {
           Container(
             height: 100,
             color: Colors.grey,
-            padding: EdgeInsets.fromLTRB(5.0, 5.0, 0.0, 0.0),
-            child: Column(
+            padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Image.asset("dawny.jpg", width:200),
-                Text('홍길동 2xxxxxxx',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/dawny.jpg'),
+                  backgroundColor: Colors.white,
+                  radius: 40.0,
                 ),
+                SizedBox(
+                  width: 20.0,
                 ),
-                Text('관련학부',
-                  style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0
-                  ),
-                ),
-                Text('010-xxxx-xxxx',
-                  style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('홍길동 2xxxxxxx',
+                      style: TextStyle(
+                          color: Colors.black,
+                          letterSpacing: 2.0
+                      ),
+                    ),
+                    Text('관련학부',
+                      style: TextStyle(
+                          color: Colors.black,
+                          letterSpacing: 2.0
+                      ),
+                    ),
+                    Text('010-xxxx-xxxx',
+                      style: TextStyle(
+                          color: Colors.black,
+                          letterSpacing: 2.0
+                      ),
+                    ),
+                  ],
                 ),
               ],
-            ),
+            )
           ),
           SizedBox(
             height: 30,
