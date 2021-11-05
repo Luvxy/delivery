@@ -6,7 +6,7 @@ class ScreenA extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('한동 배달앱'),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         elevation: 0.0,
         // actions: <Widget>[
@@ -49,7 +49,7 @@ class ScreenA extends StatelessWidget {
                 print('arrow is clicked');
               },
               decoration: BoxDecoration(
-                  color: Colors.red[300],
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40.0),
                     bottomRight: Radius.circular(40.0),
@@ -139,7 +139,7 @@ class ScreenA extends StatelessWidget {
                     width: 150,
                     height: 150,
                     child: RaisedButton(
-                        color: Colors.red,
+                        color: Theme.of(context).primaryColor,
                         child: Text(
                           '주문하기',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -158,7 +158,7 @@ class ScreenA extends StatelessWidget {
                     width: 150,
                     height: 150,
                     child: RaisedButton(
-                        color: Colors.red,
+                        color: Theme.of(context).primaryColor,
                         child: Text(
                           '배달하기',
                           style: TextStyle(color: Colors.white, fontSize: 20),

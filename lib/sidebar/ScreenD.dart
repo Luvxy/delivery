@@ -11,9 +11,60 @@ class ScreenD extends StatelessWidget {
         backgroundColor: Colors.redAccent,
       ),
       body: Center(
-        child: Text(
-          '공지사항',
-          style: TextStyle(fontSize: 24.0),
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Container(
+                    width: 370,
+                    height: 260,
+                    child: RaisedButton(
+                        color: Colors.white60,
+                        child: Image.asset('assets/1.png',fit: BoxFit.contain,),
+                        onPressed: () {Navigator.pushNamed(context, '/d1');}),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Container(
+                    width: 370,
+                    height: 260,
+                    child: RaisedButton(
+                        color: Colors.white60,
+                        child: Text(
+                          '공지사항',
+                          style: TextStyle(color: Colors.black87, fontSize: 20),
+                        ),
+                        onPressed: () {Navigator.pushNamed(context, '/d1');}),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Container(
+                    width: 370,
+                    height: 260,
+                    child: RaisedButton(
+                        color: Colors.white60,
+                        child: Text(
+                          '공지사항',
+                          style: TextStyle(color: Colors.black87, fontSize: 20),
+                        ),
+                        onPressed: () {Navigator.pushNamed(context, '/d1');}),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

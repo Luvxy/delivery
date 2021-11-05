@@ -8,6 +8,7 @@ import 'sidebar/ScreenF.dart';
 import 'sidebar/ScreenG.dart';
 import 'sidebar/ScreenH.dart';
 import 'sidebar/ScreenI.dart';
+import 'sidebar/ScreenD1.dart';
 import 'maps.dart';
 import 'detail1.dart';
 import 'detail2.dart';
@@ -22,6 +23,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.purple,
+        accentColor: Colors.limeAccent,
+        brightness: Brightness.light,
+        fontFamily: 'Montserrat',
+      ),
       initialRoute: '/',
       routes: {
         '/' : (context) => ScreenA(),
@@ -33,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/g' : (context) => ScreenG(),
         '/h' : (context) => ScreenH(),
         '/i' : (context) => ScreenI(),
+        '/d1' : (context) => ScreenD1(),
         '/map' : (context) => map(),
         '/detail1' : (context) => detail1(),
         '/detail2' : (context) => detail2(),

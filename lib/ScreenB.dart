@@ -9,7 +9,7 @@ class ScreenB extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('주문하기'),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
         body: Builder(
           builder: (context) {
@@ -25,7 +25,7 @@ class ScreenB extends StatelessWidget {
                         child: Form(
                           child: Theme(
                             data: ThemeData(
-                              primaryColor: Colors.redAccent,
+                              primaryColor: Theme.of(context).primaryColor,
                               inputDecorationTheme: InputDecorationTheme(
                                   border: OutlineInputBorder(),
                                   labelStyle: TextStyle(
