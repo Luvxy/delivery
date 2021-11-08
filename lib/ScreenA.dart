@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ScreenA extends StatelessWidget {
   @override
@@ -9,20 +10,6 @@ class ScreenA extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         elevation: 0.0,
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(Icons.shopping_cart),
-        //     onPressed: (){
-        //       print('Shopping cart button is clicked');
-        //     },
-        //   ),
-        //   IconButton(
-        //     icon: Icon(Icons.search),
-        //     onPressed: (){
-        //       print('search button is clicked');
-        //     },
-        //   )
-        // ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -102,6 +89,20 @@ class ScreenA extends StatelessWidget {
                 Navigator.pushNamed(context, '/i');
               },
               trailing: Icon(Icons.add),
+            ),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                        },
+                        child: Text("로그아웃"))
+                  ],
+                ),
+              ),
             ),
           ],
         ),

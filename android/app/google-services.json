@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "545602893867",
+    "project_id": "delivery-4ddfa",
+    "storage_bucket": "delivery-4ddfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545602893867:android:a10212e58ec1fb7615126e",
+        "android_client_info": {
+          "package_name": "com.example.subin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545602893867-quoh440iu6cga3u0ag3fhllsqicuodlk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.subin",
+            "certificate_hash": "c10d497bd54c9ad14c4f427f1a3a14a612937cb8"
+          }
+        },
+        {
+          "client_id": "545602893867-vsvvfbd02lbsqm61km76p71st5nnpvm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-X67guMb8XvYOOVrXiAWbygdHtd9t7Ik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545602893867-vsvvfbd02lbsqm61km76p71st5nnpvm9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

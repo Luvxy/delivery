@@ -12,6 +12,7 @@ import 'sidebar/ScreenD1.dart';
 import 'maps.dart';
 import 'detail1.dart';
 import 'detail2.dart';
+import 'logins/login.dart';
 
 
 
@@ -28,9 +29,10 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         fontFamily: 'Montserrat',
       ),
-      initialRoute: '/',
+      initialRoute: '/log',
       routes: {
-        '/' : (context) => ScreenA(),
+        '/log' : (context) => login(),
+        '/a' : (context) => ScreenA(),
         '/b' : (context) => ScreenB(),
         '/c' : (context) => ScreenC(),
         '/d' : (context) => ScreenD(),
