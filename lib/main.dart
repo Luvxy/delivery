@@ -13,6 +13,7 @@ import 'maps.dart';
 import 'detail1.dart';
 import 'detail2.dart';
 import 'logins/login.dart';
+import 'logins/page/home.dart';
 
 
 

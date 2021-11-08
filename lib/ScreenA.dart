@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+
 class ScreenA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class ScreenA extends StatelessWidget {
                 //   ),
               ],
               accountName: Text('dawny'),
-              accountEmail: Text('22000107@handong.edu'),
+              accountEmail: Text('${FirebaseAuth.instance.currentUser!.email}'),
               onDetailsPressed: () {
                 print('arrow is clicked');
               },
