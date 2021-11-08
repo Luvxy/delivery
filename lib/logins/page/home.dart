@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:screena/logins/page/mypage.dart';
 import 'package:screena/logins/page/sign_in.dart';
-import 'package:screena/main.dart';
 
 
 class Home extends StatelessWidget {
