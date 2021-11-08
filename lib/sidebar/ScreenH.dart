@@ -98,6 +98,12 @@ class ScreenH extends StatelessWidget {
                                 SizedBox(
                                   height: 100,
                                 ),
+                                Padding(
+                                  padding: EdgeInsets.all(100),
+                                  child: SizedBox(
+                                    child: Text('계좌번호 '),
+                                  ),
+                                ),
                                 Container(
                                   width: 111,
                                   height: 80,
