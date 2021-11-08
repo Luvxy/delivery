@@ -31,7 +31,7 @@ class ScreenI extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('홍길동 21xxxxxx',
+                    Text('홍길동 2xxxxxxx',
                       style: TextStyle(
                           color: Colors.black,
                           letterSpacing: 2.0
