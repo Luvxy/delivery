@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:screena/ScreenA.dart';
+import 'package:flutter/cupertino.dart';
 
 class SignIn extends StatelessWidget {
 
@@ -8,6 +8,11 @@ class SignIn extends StatelessWidget {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email, password: _password);
+      bool? acount = FirebaseAuth.instance.currentUser?.emailVerified;
+      if (acount != true) {
+        FirebaseAuth.instance.signOut();
+        showSnackBar4(context);
+    }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -135,6 +140,14 @@ void showSnackBar2(BuildContext context) {
 void showSnackBar3(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
     content: Text('plase check id', textAlign: TextAlign.center),
+    duration: Duration(seconds: 2),
+    backgroundColor: Colors.blue,
+  ));
+}
+
+void showSnackBar4(BuildContext context) {
+  Scaffold.of(context).showSnackBar(SnackBar(
+    content: Text('이메일 인증이 되지 않았습니다.', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
