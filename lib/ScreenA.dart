@@ -31,7 +31,7 @@ class ScreenA extends StatelessWidget {
                 //   backgroundColor: Colors.white,
                 //   ),
               ],
-              accountName: Text('dawny'),
+              accountName: Text('userName'),
               accountEmail: Text('${FirebaseAuth.instance.currentUser!.email}'),
               onDetailsPressed: () {
                 print('arrow is clicked');
@@ -99,6 +99,7 @@ class ScreenA extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
+                          Navigator.pushNamed(context, '/log');
                         },
                         child: Text("로그아웃"))
                   ],
