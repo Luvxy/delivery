@@ -8,7 +8,7 @@ class ScreenF extends StatelessWidget {
       appBar: AppBar(
         title: Text('문의'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: Text(

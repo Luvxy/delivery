@@ -7,7 +7,7 @@ class ScreenD1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('ScreenD1'),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: Text(

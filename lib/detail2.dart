@@ -8,7 +8,7 @@ class detail2 extends StatelessWidget {
       appBar: AppBar(
         title: Text('주문내역 상세'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: ListView(
@@ -59,7 +59,7 @@ class detail2 extends StatelessWidget {
               width: 200,
               height: 100,
               child: RaisedButton(
-                color: Colors.yellow,
+                color: Theme.of(context).accentColor,
                 child: Text('수락하기', style: TextStyle(fontSize: 30, color: Colors.black)),
                 onPressed: (){},
               ),

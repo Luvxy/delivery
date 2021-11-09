@@ -9,7 +9,7 @@ class ScreenH extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('배달원 등록'),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
         body: Builder(
           builder: (context) {
@@ -25,7 +25,7 @@ class ScreenH extends StatelessWidget {
                         child: Form(
                           child: Theme(
                             data: ThemeData(
-                              primaryColor: Colors.redAccent,
+                              primaryColor: Theme.of(context).accentColor,
                               inputDecorationTheme: InputDecorationTheme(
                                   border: OutlineInputBorder(),
                                   labelStyle: TextStyle(
@@ -107,7 +107,7 @@ class ScreenH extends StatelessWidget {
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 20),
                                       ),
-                                      color: Colors.redAccent,
+                                      color: Theme.of(context).primaryColor,
                                       onPressed: () {
                                         if (controller == null) {
                                           showSnackBar(context);
@@ -143,6 +143,6 @@ void showSnackBar2(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
     content: Text('등록이 완료되었습니다', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
-    backgroundColor: Colors.redAccent,
+    backgroundColor: Theme.of(context).primaryColor,
   ));
 }

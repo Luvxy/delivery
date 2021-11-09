@@ -8,7 +8,7 @@ class ScreenI extends StatelessWidget {
       appBar: AppBar(
         title: Text('내 정보'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
         padding: const EdgeInsets.all(15.0),

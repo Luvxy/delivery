@@ -12,7 +12,7 @@ class ScreenE extends StatelessWidget {
       appBar: AppBar(
         title: Text('주문내역'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Builder(builder: (context) {
         return Center(
@@ -59,7 +59,7 @@ class ScreenE extends StatelessWidget {
                         width: 110,
                         height: 75,
                         child: RaisedButton(
-                          color: Colors.yellow,
+                          color: Theme.of(context).accentColor,
                           child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                           onPressed: (){
                             Navigator.pushNamed(context, '/detail1');
@@ -100,7 +100,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -141,7 +141,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -182,7 +182,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -223,7 +223,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -264,7 +264,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -305,7 +305,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
@@ -346,7 +346,7 @@ class ScreenE extends StatelessWidget {
                           width: 110,
                           height: 75,
                           child: RaisedButton(
-                            color: Colors.yellow,
+                            color: Theme.of(context).accentColor,
                             child: Text('상세보기',style: TextStyle(fontSize: 20, color: Colors.white),),
                             onPressed: (){
                               Navigator.pushNamed(context, '/detail1');
