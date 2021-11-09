@@ -1,13 +1,29 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:logger/logger.dart';
+
+Logger logger = Logger();
 
 class newId extends StatelessWidget {
+  String _lastFirebaseResponse = "";
+  setLastFBMessage(String msg) {
+    _lastFirebaseResponse = msg;
+  }
 
   void _signUp(String _email, String _password, BuildContext context) async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _email, password: _password);
+      if (FirebaseAuth.instance.currentUser!.email != null) {
+        // 인증 메일 발송
+        FirebaseAuth.instance.currentUser!.sendEmailVerification();
+        FirebaseAuth.instance.signOut();
+      }
     } on FirebaseAuthException catch (e) {
+      logger.e(e.toString());
+      List<String> result = e.toString().split(", ");
+      setLastFBMessage(result[1]);
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
         showSnackBar3(context);
@@ -15,13 +31,15 @@ class newId extends StatelessWidget {
         print('The account already exists for that email.');
         showSnackBar2(context);
       }
-    } catch (e) {
     }
   }
 
-  TextEditingController controller = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
-  TextEditingController controller3 = TextEditingController();
+
+  bool isInteger(num value) => (value % 1) == 0;
+
+  TextEditingController userId = TextEditingController();
+  TextEditingController userPassword = TextEditingController();
+  TextEditingController userPassword2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,20 +74,20 @@ class newId extends StatelessWidget {
                             child: Column(
                               children: <Widget>[
                                 TextField(
-                                  controller: controller,
+                                  controller: userId,
                                   decoration:
                                   InputDecoration(labelText: 'Enter email'),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 TextField(
-                                  controller: controller2,
+                                  controller: userPassword,
                                   decoration: InputDecoration(
                                       labelText: 'Enter Password'),
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
                                 ),
                                 TextField(
-                                  controller: controller3,
+                                  controller: userPassword2,
                                   decoration: InputDecoration(
                                       labelText: 'Enter Password again'),
                                   keyboardType: TextInputType.text,
@@ -89,10 +107,27 @@ class newId extends StatelessWidget {
                                         size: 35.0,
                                       ),
                                       onPressed: () {
-                                        if(controller2.text != controller3.text){
+                                        var check = userId.text.toString().split("@");
+                                        var checkNum = check[0].split('');
+                                        if(check[1] != 'handong.edu'){
+                                          print('${check[1]}');
+                                          showSnackBar4(context);
+                                        }
+                                        else if(check[0].length > 8){
+                                          showSnackBar5(context);
+                                          try{
+                                            var num = int.parse(check[0]);
+                                          }catch(e){
+                                            showSnackBar5(context);
+                                          }
+                                        }
+                                        else if(checkNum[0] != '2'){
+                                          showSnackBar5(context);
+                                        }
+                                        else if(userPassword.text != userPassword2.text){
                                           showSnackBar(context);
                                         }else{
-                                          _signUp(controller.text, controller2.text, context);
+                                          _signUp(userId.text, userPassword.text, context);
                                           Navigator.of(context).pop();
                                         }
                                       },
@@ -129,6 +164,22 @@ void showSnackBar2(BuildContext context) {
 void showSnackBar3(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
     content: Text('비밀번호가 너무 간단합니다.', textAlign: TextAlign.center),
+    duration: Duration(seconds: 2),
+    backgroundColor: Colors.blue,
+  ));
+}
+
+void showSnackBar4(BuildContext context) {
+  Scaffold.of(context).showSnackBar(SnackBar(
+    content: Text('한동 이메일로만 가입 가능 합니다.', textAlign: TextAlign.center),
+    duration: Duration(seconds: 2),
+    backgroundColor: Colors.blue,
+  ));
+}
+
+void showSnackBar5(BuildContext context) {
+  Scaffold.of(context).showSnackBar(SnackBar(
+    content: Text('잘못된 학번입니다.', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
