@@ -18,6 +18,8 @@ class SignIn extends StatelessWidget {
       }else{
         print(e);
       }
+    }catch (e) {
+      print(e);
     }
   }
 
@@ -85,7 +87,6 @@ class SignIn extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         _login( controller.text, controller2.text, context);
-                                        Navigator.pushNamed(context, '/a');
                                       },
                                     )),
                                  SizedBox(
