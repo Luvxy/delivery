@@ -99,7 +99,7 @@ class ScreenA extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
-                          Navigator.pushNamed(context, '/log');
+                          Navigator.of(context).pop();
                         },
                         child: Text("로그아웃"))
                   ],
