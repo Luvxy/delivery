@@ -1,34 +1,33 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:screena/ScreenA.dart';
 
-class SignIn extends StatelessWidget {
+class newId extends StatelessWidget {
 
-  void _login(String _email, String _password, BuildContext context) async {
+  void _signUp(String _email, String _password, BuildContext context) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _email, password: _password);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
         showSnackBar3(context);
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
         showSnackBar2(context);
-      }else{
-        print(e);
       }
+    } catch (e) {
     }
   }
 
   TextEditingController controller = TextEditingController();
   TextEditingController controller2 = TextEditingController();
+  TextEditingController controller3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("로그인"),
+        title: Text("회원가입"),
       ),
       body: Builder(
         builder: (context) {
@@ -69,6 +68,13 @@ class SignIn extends StatelessWidget {
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
                                 ),
+                                TextField(
+                                  controller: controller3,
+                                  decoration: InputDecoration(
+                                      labelText: 'Enter Password again'),
+                                  keyboardType: TextInputType.text,
+                                  obscureText: true,
+                                ),
                                 SizedBox(
                                   height: 40.0,
                                 ),
@@ -83,24 +89,14 @@ class SignIn extends StatelessWidget {
                                         size: 35.0,
                                       ),
                                       onPressed: () {
-                                        _login( controller.text, controller2.text, context);
-                                        Navigator.pushNamed(context, '/a');
+                                        if(controller2.text != controller3.text){
+                                          showSnackBar(context);
+                                        }else{
+                                          _signUp(controller.text, controller2.text, context);
+                                          Navigator.of(context).pop();
+                                        }
                                       },
-                                    )),
-                                 SizedBox(
-                                  height: 70.0,
-                                ),
-                                ButtonTheme(
-                                  minWidth: 100.0,
-                                  height: 50.0,
-                                  child: RaisedButton(
-                                    color: Colors.white,
-                                    child: Text('회원가입'),
-                                    onPressed: (){
-                                      Navigator.pushNamed(context, '/new');
-                                    },
-                                  ),
-                                ),
+                                    ))
                               ],
                             ),
                           )))
@@ -116,7 +112,7 @@ class SignIn extends StatelessWidget {
 
 void showSnackBar(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
-    content: Text('이미 가입된 이메일 입니다.', textAlign: TextAlign.center),
+    content: Text('비밀번호가 일치하지 않습니다.', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
@@ -124,7 +120,7 @@ void showSnackBar(BuildContext context) {
 
 void showSnackBar2(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
-    content: Text('비밀번호가 일치하지 않습니다.', textAlign: TextAlign.center),
+    content: Text('해당 이메일로 가입된 아이디가 이미 존재합니다.', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
@@ -132,7 +128,7 @@ void showSnackBar2(BuildContext context) {
 
 void showSnackBar3(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
-    content: Text('plase check id', textAlign: TextAlign.center),
+    content: Text('비밀번호가 너무 간단합니다.', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
