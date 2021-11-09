@@ -8,7 +8,7 @@ class detail1 extends StatelessWidget {
       appBar: AppBar(
         title: Text('주문내역 상세'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: ListView(

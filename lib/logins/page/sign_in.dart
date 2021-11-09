@@ -29,6 +29,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("로그인"),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Builder(
         builder: (context) {

@@ -96,12 +96,13 @@ class ScreenA extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
+                    RaisedButton(
+                      color: Theme.of(context).accentColor,
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
                           Navigator.pushNamed(context, '/log');
                         },
-                        child: Text("로그아웃"))
+                        child: Text("로그아웃")),
                   ],
                 ),
               ),

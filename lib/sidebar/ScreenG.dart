@@ -8,7 +8,7 @@ class ScreenG extends StatelessWidget {
       appBar: AppBar(
         title: Text('신고'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: Text(
