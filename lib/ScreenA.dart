@@ -7,7 +7,7 @@ class ScreenA extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('한동 배달앱'),
+        title: Text('한동배달앱'),
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         elevation: 0.0,
