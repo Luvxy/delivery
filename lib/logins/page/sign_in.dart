@@ -11,7 +11,6 @@ class SignIn extends StatelessWidget {
       bool? acount = FirebaseAuth.instance.currentUser?.emailVerified;
       if (acount != true) {
         FirebaseAuth.instance.signOut();
-        showSnackBar4(context);
     }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -26,6 +25,7 @@ class SignIn extends StatelessWidget {
     }catch (e) {
       print(e);
     }
+    showSnackBar4(context);
   }
 
   TextEditingController controller = TextEditingController();
