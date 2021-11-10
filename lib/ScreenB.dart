@@ -132,6 +132,23 @@ class ScreenB extends StatelessWidget {
                                           showSnackBar2(context);
                                         }
                                       }),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width: 200,
+                                  height: 50,
+                                  child: RaisedButton(
+                                      child: Text(
+                                        '예약하기',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      color: Colors.purpleAccent,
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/time');
+                                      }),
                                 )
                               ]),
                             ),
