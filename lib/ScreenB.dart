@@ -56,7 +56,7 @@ class ScreenB extends StatelessWidget {
                                           style: TextStyle(
                                               color: Colors.white, fontSize: 20),
                                         ),
-                                        color: Colors.redAccent,
+                                        color: Theme.of(context).accentColor,
                                         onPressed: () {
                                           Navigator.pushNamed(context, '/map');
                                         },
@@ -78,7 +78,7 @@ class ScreenB extends StatelessWidget {
                                           style: TextStyle(
                                               color: Colors.white, fontSize: 20),
                                         ),
-                                        color: Colors.redAccent,
+                                        color: Theme.of(context).accentColor,
                                         onPressed: () {
                                           Navigator.pushNamed(context, '/map');
                                         },
@@ -124,7 +124,7 @@ class ScreenB extends StatelessWidget {
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 20),
                                       ),
-                                      color: Colors.redAccent,
+                                      color: Theme.of(context).accentColor,
                                       onPressed: () {
                                         if (controller == null) {
                                           showSnackBar(context);

@@ -7,7 +7,7 @@ class ScreenA extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('한동 배달앱'),
+        title: Text('한동배달앱'),
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         elevation: 0.0,
@@ -96,12 +96,13 @@ class ScreenA extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
+                    RaisedButton(
+                      color: Theme.of(context).accentColor,
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
-                          Navigator.pushNamed(context, '/log');
+                          Navigator.of(context).pop();
                         },
-                        child: Text("로그아웃"))
+                        child: Text("로그아웃")),
                   ],
                 ),
               ),
