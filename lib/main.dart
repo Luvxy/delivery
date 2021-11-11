@@ -15,13 +15,16 @@ import 'detail2.dart';
 import 'logins/login.dart';
 import 'logins/page/home.dart';
 import 'logins/page/newId.dart';
-import 'time.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 
 
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,6 @@ class MyApp extends StatelessWidget {
         '/detail1' : (context) => detail1(),
         '/detail2' : (context) => detail2(),
         '/new' : (context) => newId(),
-        // '/time' : (context) => time(),
       },
     );
 
