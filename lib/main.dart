@@ -15,6 +15,8 @@ import 'detail2.dart';
 import 'logins/login.dart';
 import 'logins/page/home.dart';
 import 'logins/page/newId.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 
 
@@ -22,6 +24,7 @@ import 'logins/page/newId.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {

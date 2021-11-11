@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:screena/ScreenB.dart';
 
 class ScreenC extends StatelessWidget {
-  var obname = '실내화';
+  final String? obname;
   var place = '오석관';
   var place2 = '벧엘관';
+
+
+  ScreenC({Key? key, @required this.obname}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

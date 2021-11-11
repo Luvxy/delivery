@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ScreenB extends StatelessWidget {
-  TextEditingController controller = TextEditingController();
+  TextEditingController object = TextEditingController();
   TextEditingController controller2 = TextEditingController();
+  TextEditingController controller3 = TextEditingController();
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +91,12 @@ class ScreenB extends StatelessWidget {
                                           Navigator.pushNamed(context, '/map');
                                         },
                                       ),
+                                      TextField(
+                                        controller: controller3,
+                                        decoration:
+                                        InputDecoration(labelText: '상세 장소'),
+                                        keyboardType: TextInputType.emailAddress,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -90,7 +104,7 @@ class ScreenB extends StatelessWidget {
                                   height: 30,
                                 ),
                                 TextField(
-                                  controller: controller,
+                                  controller: object,
                                   decoration:
                                   InputDecoration(labelText: '물건 이름'),
                                   keyboardType: TextInputType.emailAddress,
@@ -126,13 +140,16 @@ class ScreenB extends StatelessWidget {
                                       ),
                                       color: Theme.of(context).accentColor,
                                       onPressed: () {
-                                        if (controller == null) {
+                                        if (object == null) {
                                           showSnackBar(context);
                                         } else {
                                           showSnackBar2(context);
+                                          order(object.text, controller3.text,
+                                              controller2.text, context);
+                                          Navigator.pop(context);
+                                          _showComplete(context);
                                         }
-                                      }),
-                                )
+                                      }),)
                               ]),
                             ),
                           ),
@@ -163,3 +180,51 @@ void showSnackBar2(BuildContext context) {
     backgroundColor: Colors.redAccent,
   ));
 }
+
+Future<void> order(String _obName, String _ppPlace, String _time, BuildContext context) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  CollectionReference order =
+  FirebaseFirestore.instance.collection('order');
+
+
+  String name = _obName;
+  String place = _ppPlace;
+  String time = _time;
+
+  order.doc(FirebaseAuth.instance.currentUser!.email).set(
+    {
+      'obName' : name,
+      'ppPlace' : place,
+      'time' : time,
+    }
+  );
+}
+
+Future<void> _showComplete(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('주문 완료'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: const <Widget>[
+              Text('주문이 완료되었습니다.'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('확인'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
