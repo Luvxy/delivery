@@ -216,10 +216,13 @@ class _ScreenBState extends State<ScreenB> {
                                             _selectedTime = '';
                                           } else {
                                             _selectedTime = '${timeOfDay.hour}:${timeOfDay.minute}';
+                                            order2(object.text, controller3.text, _selectedTime,
+                                                controller2.text, context);
+                                            Navigator.pop(context);
+                                            _showComplete(context);
                                           }
                                         });
                                       });
-                                      Navigator.of(context).pop;
                                     },
                                   ),
                                 )
@@ -273,6 +276,29 @@ Future<void> order(String _obName, String _ppPlace, String _time, BuildContext c
     }
   );
 }
+
+Future<void> order2(String _obName, String _ppPlace, String _time, String _other, BuildContext context) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  CollectionReference order =
+  FirebaseFirestore.instance.collection('order');
+
+
+  String name = _obName;
+  String place = _ppPlace;
+  String time = _time;
+  String other = _other;
+
+  order.doc(FirebaseAuth.instance.currentUser!.email).set(
+      {
+        'obName' : name,
+        'ppPlace' : place,
+        'time' : time,
+        'other' : other,
+      }
+  );
+}
+
 
 Future<void> _showComplete(BuildContext context) async {
   return showDialog<void>(
