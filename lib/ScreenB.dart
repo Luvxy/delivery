@@ -5,7 +5,51 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class ScreenB extends StatelessWidget {
+
+
+class time extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '예약 시간',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ScreenB(),
+    );
+  }
+}
+
+Future<void> _showMyDialog(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        content: SingleChildScrollView(
+          child: ScreenB(),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('확인'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
+
+class ScreenB extends StatefulWidget {
+  @override
+  _ScreenBState createState() => _ScreenBState();
+}
+
+class _ScreenBState extends State<ScreenB> {
+  String _selectedTime = '';
   TextEditingController object = TextEditingController();
   TextEditingController controller2 = TextEditingController();
   TextEditingController controller3 = TextEditingController();
@@ -123,11 +167,11 @@ class ScreenB extends StatelessWidget {
                                 TextField(
                                   controller: controller2,
                                   decoration:
-                                      InputDecoration(labelText: '요청사항'),
+                                  InputDecoration(labelText: '요청사항'),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 SizedBox(
-                                  height: 100,
+                                  height: 50,
                                 ),
                                 Container(
                                   width: 200,
@@ -149,7 +193,36 @@ class ScreenB extends StatelessWidget {
                                           Navigator.pop(context);
                                           _showComplete(context);
                                         }
-                                      }),)
+                                      }),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width: 200,
+                                  height: 50,
+                                  child: RaisedButton(
+                                    child: Text('예약하기'),
+                                    color: Colors.purple,
+                                    textColor: Colors.white,
+                                    onPressed: () {
+                                      Future<TimeOfDay?> future = showTimePicker(
+                                        context: context,
+                                        initialTime: TimeOfDay.now(),
+                                      );
+                                      future.then((timeOfDay) {
+                                        setState(() {
+                                          if (timeOfDay == null) {
+                                            _selectedTime = '';
+                                          } else {
+                                            _selectedTime = '${timeOfDay.hour}:${timeOfDay.minute}';
+                                          }
+                                        });
+                                      });
+                                      Navigator.of(context).pop;
+                                    },
+                                  ),
+                                )
                               ]),
                             ),
                           ),
@@ -227,4 +300,3 @@ Future<void> _showComplete(BuildContext context) async {
     },
   );
 }
-
