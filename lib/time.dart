@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 
-
 class time extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,10 +52,11 @@ class _MainPageState extends State<MainPage> {
                     }
                   });
                 });
+                Navigator.of(context).pop;
               },
             ),
             Text(
-              '결과 : $_selectedTime',
+              '예약 시간 : $_selectedTime',
             ),
           ],
         ),

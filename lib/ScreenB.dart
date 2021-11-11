@@ -4,6 +4,7 @@ class ScreenB extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,4 +180,52 @@ void showSnackBar2(BuildContext context) {
     duration: Duration(seconds: 2),
     backgroundColor: Colors.redAccent,
   ));
+}
+
+Future<void> _showMyDialog(BuildContext context) async {
+  String _selectedTime = '';
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('예약하기'),
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                child: Text('시간 선택'),
+                color: Colors.purple,
+                textColor: Colors.white,
+                onPressed: () {
+                  Future<TimeOfDay?> future = showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+
+                  future.then((timeOfDay) {
+                    setState(() {
+                      if (timeOfDay == null) {
+                        _selectedTime = '';
+                      } else {
+                        _selectedTime = '${timeOfDay.hour}:${timeOfDay.minute}';
+                      }
+                    });
+                  });
+                  Navigator.of(context).pop;
+                },
+              ),
+              Text(
+                '예약 시간 : $_selectedTime',
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }
