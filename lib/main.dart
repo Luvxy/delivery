@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         '/detail1' : (context) => detail1(),
         '/detail2' : (context) => detail2(),
         '/new' : (context) => newId(),
-        '/time' : (context) => time(),
+        // '/time' : (context) => time(),
       },
     );
 

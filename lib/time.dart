@@ -1,25 +1,12 @@
 import 'package:flutter/material.dart';
 
 
-class time extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '예약 시간',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatefulWidget {
+class time extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<time> {
   String _selectedTime = '';
 
   @override
