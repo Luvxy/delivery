@@ -171,3 +171,15 @@ Future<void> showComplete2(BuildContext context, String _time) async {
     },
   );
 }
+
+Future<void> first() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  CollectionReference order = FirebaseFirestore.instance.collection('order');
+
+  String? email = FirebaseAuth.instance.currentUser!.email.toString();
+
+  order.doc(email).set({
+    'count' : 0,
+  });
+}
