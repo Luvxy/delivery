@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
         '/i' : (context) => ScreenI(),
         '/d1' : (context) => ScreenD1(),
         '/map' : (context) => map(),
-        '/detail1' : (context) => detail1(),
         '/detail2' : (context) => detail2(),
         '/new' : (context) => newId(),
       },
