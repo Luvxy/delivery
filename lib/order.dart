@@ -17,7 +17,7 @@ Future<void> order(String _obName, String _ppPlace, String _strPlace,
   var counter = await order.doc(id).get();
   var db = counter.data();
   String dbList = db.toString();
-  String dbListSp = dbList[20]+dbList[21];
+  String dbListSp = dbList[8]+dbList[9];
   int dbNum = int.parse(dbListSp);
 
   int count = dbNum;
@@ -25,7 +25,7 @@ Future<void> order(String _obName, String _ppPlace, String _strPlace,
   var counter1= await order.doc(id).get();
   var db1 = counter1.data();
   String dbList1 = db1.toString();
-  String dbListSp1 = dbList1[20]+dbList1[21];
+  String dbListSp1 = dbList1[8]+dbList1[9];
   int dbNum1 = int.parse(dbListSp1);
 
   String? name = _obName;
@@ -56,7 +56,7 @@ Future<void> order2(String _obName, String _ppPlace, String _time,
   var counter = await order.doc(email).get(); //해당 이메일에 저장된 doc 불러옴
   var db = counter.data(); //doc의 data를 불러옴
   String dbList = db.toString(); //data를 string 으로 바꿈
-  String dbListSp = dbList[20]+dbList[21]; //data string에서 count 숫자를 추출
+  String dbListSp = dbList[8]+dbList[9]; //data string에서 count 숫자를 추출
   int dbNum = int.parse(dbListSp); //count를 string 에서 int로 바꿈
   var id = email + dbListSp;
 
@@ -84,7 +84,7 @@ Future<void> update() async {
   var counter = await order.doc(id).get();
   var db = counter.data();
   String dbList = db.toString();
-  String dbListSp = dbList[20]+dbList[21];
+  String dbListSp = dbList[8]+dbList[9];
   int dbNum = int.parse(dbListSp);
 
   int count = dbNum;
@@ -172,12 +172,10 @@ Future<void> showComplete2(BuildContext context, String _time) async {
   );
 }
 
-Future<void> first() async {
+Future<void> first(String email) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   CollectionReference order = FirebaseFirestore.instance.collection('order');
-
-  String? email = FirebaseAuth.instance.currentUser!.email.toString();
 
   order.doc(email).set({
     'count' : 0,
