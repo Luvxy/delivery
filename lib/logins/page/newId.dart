@@ -129,7 +129,7 @@ class newId extends StatelessWidget {
                                           showSnackBar(context);
                                         }else{
                                           _signUp(userId.text, userPassword.text, context);
-                                          first();
+                                          first(userId.text);
                                           Navigator.of(context).pop();
                                         }
                                       },

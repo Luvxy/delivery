@@ -55,7 +55,8 @@ class _ScreenBState extends State<ScreenB> {
   String _selectedTime = '';
   TextEditingController object = TextEditingController();
   TextEditingController controller2 = TextEditingController();
-  TextEditingController controller3 = TextEditingController();
+  TextEditingController strPlace = TextEditingController();
+  TextEditingController ppPlace = TextEditingController();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
@@ -105,60 +106,39 @@ class _ScreenBState extends State<ScreenB> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      RaisedButton(
-                                        child: Text(
-                                          '지도 찾기',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        color: Theme
-                                            .of(context)
-                                            .accentColor,
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, '/map');
-                                        },
-                                      ),
-                                    ],
-                                  ),
+                                TextField(
+                                  controller: strPlace,
+                                  decoration: InputDecoration(labelText: '상세 장소'),
+                                  keyboardType:
+                                  TextInputType.emailAddress,
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                                 SizedBox(
                                   width: 400,
                                   height: 20,
                                   child: Text('물건을 받을 장소'),
                                 ),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      RaisedButton(
-                                        child: Text(
-                                          '지도 찾기',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        color: Theme
-                                            .of(context)
-                                            .accentColor,
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, '/map');
-                                        },
-                                      ),
-                                      TextField(
-                                        controller: controller3,
-                                        decoration:
-                                        InputDecoration(labelText: '상세 장소'),
-                                        keyboardType:
-                                        TextInputType.emailAddress,
-                                      ),
-                                    ],
-                                  ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: ppPlace,
+                                  decoration: InputDecoration(labelText: '상세 장소'),
+                                  keyboardType:
+                                  TextInputType.emailAddress,
                                 ),
                                 SizedBox(
-                                  height: 30,
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: 400,
+                                  height: 20,
+                                  child: Text('물건 이름'),
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                                 TextField(
                                   controller: object,
@@ -167,15 +147,12 @@ class _ScreenBState extends State<ScreenB> {
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 SizedBox(
-                                  height: 30,
+                                  height: 10,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 400,
-                                    height: 20,
-                                    child: Text('요청사항'),
-                                  ),
+                                SizedBox(
+                                  width: 400,
+                                  height: 20,
+                                  child: Text('요청사항'),
                                 ),
                                 TextField(
                                   controller: controller2,
@@ -205,12 +182,13 @@ class _ScreenBState extends State<ScreenB> {
                                           showSnackBar2(context);
                                           order(
                                             object.text,
-                                            controller3.text,
+                                            ppPlace.text,
                                             controller2.text,
                                             context,);
+                                          //해당 유저의 doc의 count 업데이트
+                                          update();
                                           Navigator.pop(context);
                                           showComplete(context);
-                                          update();
                                         }
                                       }),
                                 ),
@@ -240,10 +218,11 @@ class _ScreenBState extends State<ScreenB> {
                                                 .minute}';
                                             order2(
                                                 object.text,
-                                                controller3.text,
+                                                ppPlace.text,
                                                 _selectedTime,
                                                 controller2.text,
                                                 context);
+                                            //해당 유저의 doc의 count 업데이트
                                             update();
                                             Navigator.pop(context);
                                             showComplete2(
