@@ -12,11 +12,24 @@ class changeId extends StatelessWidget {
     _lastFirebaseResponse = msg;
   }
 
-  void changePassword(String password, BuildContext context) {
+  void changePassword(String password, BuildContext context) async {
     User user = FirebaseAuth.instance.currentUser!;
     user.updatePassword(password);
     _showMyDialog(context);
+  //   try {
+  //
+  //
+  // } on FirebaseAuthException catch (e) {
+  //     logger.e(e.toString());
+  //     List<String> result = e.toString().split(", ");
+  //     setLastFBMessage(result[1]);
+  //     if (e.code == 'weak-password') {
+  //       print('The password provided is too weak.');
+  //       showSnackBar3(context);
+  //     }
+  //   }
   }
+
 
   Future<void> _showMyDialog(BuildContext context) async {
     return showDialog<void>(
@@ -46,11 +59,14 @@ class changeId extends StatelessWidget {
     );
   }
 
+
+
   bool isInteger(num value) => (value % 1) == 0;
 
-  TextEditingController userpassword = TextEditingController();
+
   TextEditingController userPassword2 = TextEditingController();
   TextEditingController userPassword3 = TextEditingController();
+  String? Password = FirebaseAuth.instance.currentUser!.updatePassword.toString();
 
   @override
   Widget build(BuildContext context) {
@@ -85,15 +101,9 @@ class changeId extends StatelessWidget {
                             child: Column(
                               children: <Widget>[
                                 TextField(
-                                  controller: userpassword,
-                                  decoration:
-                                  InputDecoration(labelText: '기존 비밀번호'),
-                                  keyboardType: TextInputType.text,
-                                ),
-                                TextField(
                                   controller: userPassword2,
                                   decoration:
-                                  InputDecoration(labelText: '변경할 비밀번호'),
+                                  InputDecoration(labelText: '변경할 비밀번호(6자리 이상)'),
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
                                 ),
@@ -122,9 +132,9 @@ class changeId extends StatelessWidget {
                                             userPassword3.text) {
                                           showSnackBar(context);
                                         }
-                                        else if (userpassword == 'wrong-password') {
-                                          print('Wrong password provided for that user.');
-                                          showSnackBar2(context);}
+                                        else if (userPassword2 == 'weak-password') {
+          print('The password provided is too weak.');
+          showSnackBar3(context);}
                                         else {
                                           changePassword(userPassword2.text, context);
                                         }
@@ -150,8 +160,6 @@ class changeId extends StatelessWidget {
     ));
   }
 
-
-
   void showSnackBar3(BuildContext context) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text('비밀번호가 너무 간단합니다.', textAlign: TextAlign.center),
@@ -159,12 +167,4 @@ class changeId extends StatelessWidget {
       backgroundColor: Colors.blue,
     ));
   }
-  void showSnackBar2(BuildContext context) {
-    Scaffold.of(context).showSnackBar(SnackBar(
-      content: Text('비밀번호가 일치하지 않습니다.', textAlign: TextAlign.center),
-      duration: Duration(seconds: 2),
-      backgroundColor: Colors.blue,
-    ));
-  }
-
 }
