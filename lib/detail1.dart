@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class detail1 extends StatelessWidget {
+  final String text;
+  final String place;
+  final String place2;
+  final String time;
+
+  const detail1(this.text,this.place,this.place2,this.time, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +34,13 @@ class detail1 extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        child: Text('물건이름 : 실내화', style: TextStyle(fontSize: 20, color: Colors.white),),
+                        child: Text('물건이름 : $text', style: TextStyle(fontSize: 20, color: Colors.white),),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        child: Text('장소 : 오석관 -> 벧엘관', style: TextStyle(fontSize: 20, color: Colors.white)),
+                        child: Text('장소 : $place -> $place2', style: TextStyle(fontSize: 20, color: Colors.white)),
                       ),
                     ),
                     Padding(
@@ -75,7 +81,7 @@ class detail1 extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        child: Text('배달 완료 시간 : 23:59', style: TextStyle(fontSize: 20, color: Colors.white)),
+                        child: Text('배달 시간 : $time', style: TextStyle(fontSize: 20, color: Colors.white)),
                       ),
                     ),
                     Padding(

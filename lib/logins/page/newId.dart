@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
+import 'package:screena/order.dart';
 
 Logger logger = Logger();
 
@@ -128,6 +129,7 @@ class newId extends StatelessWidget {
                                           showSnackBar(context);
                                         }else{
                                           _signUp(userId.text, userPassword.text, context);
+                                          first();
                                           Navigator.of(context).pop();
                                         }
                                       },
