@@ -17,7 +17,7 @@ import 'logins/page/home.dart';
 import 'logins/page/newId.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-
+import 'logins/page/changeId.dart';
 
 
 
@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
         '/map' : (context) => map(),
         '/detail2' : (context) => detail2(),
         '/new' : (context) => newId(),
+        '/change': (context) => changeId(),
       },
     );
 
