@@ -11,32 +11,22 @@ Future<void> order(String _obName, String _ppPlace, String _strPlace,
   await Firebase.initializeApp();
   CollectionReference order = FirebaseFirestore.instance.collection('order');
 
-
   String? email = FirebaseAuth.instance.currentUser!.email.toString();
-  String id = email;
-  var counter = await order.doc(id).get();
+  var counter = await order.doc(email).get();
   var db = counter.data();
   String dbList = db.toString();
-  String dbListSp = dbList[8]+dbList[9];
+  String dbListSp = dbList[7]+dbList[8];
   int dbNum = int.parse(dbListSp);
-
-  int count = dbNum;
-  String id1 = email + count.toString();
-  var counter1= await order.doc(id).get();
-  var db1 = counter1.data();
-  String dbList1 = db1.toString();
-  String dbListSp1 = dbList1[8]+dbList1[9];
-  int dbNum1 = int.parse(dbListSp1);
 
   String? name = _obName;
   String? place = _ppPlace;
   String? strPlace = _strPlace;
 
-  update();
+  String id = email+dbNum.toString();
 
-  order.doc(email).set({
+  await order.doc(id).set({
     'obName': name,
-    'count' : 0,
+    'count' : dbNum,
     'ppPlace': place,
     'strPlace': strPlace,
   });
@@ -48,15 +38,12 @@ Future<void> order2(String _obName, String _ppPlace, String _time,
   await Firebase.initializeApp();
   CollectionReference order = FirebaseFirestore.instance.collection('order');
 
-  //해당 유저의 doc의 count 업데이트
-  update();
-
   //해당 유저 doc에 저장되어 있는 count 불러오기
   String? email = FirebaseAuth.instance.currentUser!.email.toString(); //유저의 이메일을 저장
   var counter = await order.doc(email).get(); //해당 이메일에 저장된 doc 불러옴
   var db = counter.data(); //doc의 data를 불러옴
   String dbList = db.toString(); //data를 string 으로 바꿈
-  String dbListSp = dbList[8]+dbList[9]; //data string에서 count 숫자를 추출
+  String dbListSp = dbList[7]+dbList[8]; //data string에서 count 숫자를 추출
   int dbNum = int.parse(dbListSp); //count를 string 에서 int로 바꿈
   var id = email + dbListSp;
 
@@ -65,7 +52,7 @@ Future<void> order2(String _obName, String _ppPlace, String _time,
   String? time = _time;
   String? other = _other;
 
-  order.doc(id).set({
+  await order.doc(id).set({
     'obName': name,
     'count' : dbNum,
     'ppPlace': place,
@@ -84,7 +71,7 @@ Future<void> update() async {
   var counter = await order.doc(id).get();
   var db = counter.data();
   String dbList = db.toString();
-  String dbListSp = dbList[8]+dbList[9];
+  String dbListSp = dbList[7]+dbList[8];
   int dbNum = int.parse(dbListSp);
 
   int count = dbNum;
