@@ -11,6 +11,7 @@ class SignIn extends StatelessWidget {
       bool? acount = FirebaseAuth.instance.currentUser?.emailVerified;
       if (acount != true) {
         FirebaseAuth.instance.signOut();
+        showSnackBar4(context);
     }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -25,7 +26,6 @@ class SignIn extends StatelessWidget {
     }catch (e) {
       print(e);
     }
-    showSnackBar4(context);
   }
 
   TextEditingController controller = TextEditingController();
@@ -139,7 +139,7 @@ void showSnackBar2(BuildContext context) {
 
 void showSnackBar3(BuildContext context) {
   Scaffold.of(context).showSnackBar(SnackBar(
-    content: Text('plase check id', textAlign: TextAlign.center),
+    content: Text('please check id', textAlign: TextAlign.center),
     duration: Duration(seconds: 2),
     backgroundColor: Colors.blue,
   ));
