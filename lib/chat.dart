@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'ScreenB.dart';
 import 'detail1.dart';
 
 class chat extends StatelessWidget {
@@ -31,7 +31,7 @@ class chat extends StatelessWidget {
           RaisedButton(
             child: Text('상세보기'),
             onPressed: () {
-              detail1('사과','오석관','벧엘관','12:50');
+              Navigator.pushNamed(context, '/detail1');
             },
           ),
         ],

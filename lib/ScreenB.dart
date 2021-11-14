@@ -4,7 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:screena/chat.dart';
+import 'package:screena/detail1.dart';
 import 'package:screena/order.dart';
+import 'package:screena/sidebar/ScreenE.dart';
 
 class time extends StatefulWidget {
   @override
@@ -58,6 +61,8 @@ class _ScreenBState extends State<ScreenB> {
   TextEditingController strPlace = TextEditingController();
   TextEditingController ppPlace = TextEditingController();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final ValueNotifier<int> _counter = ValueNotifier<int>(0);
+
 
   @override
   Widget build(BuildContext context) {
@@ -154,6 +159,9 @@ class _ScreenBState extends State<ScreenB> {
                                   height: 20,
                                   child: Text('요청사항'),
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 TextField(
                                   controller: controller2,
                                   decoration:
@@ -225,6 +233,7 @@ class _ScreenBState extends State<ScreenB> {
                                             //해당 유저의 doc의 count 업데이트
                                             update();
                                             Navigator.pop(context);
+                                            ScreenE();
                                             showComplete2(
                                                 context, _selectedTime);
                                           }
@@ -232,7 +241,13 @@ class _ScreenBState extends State<ScreenB> {
                                       });
                                     },
                                   ),
-                                )
+                                ),
+                                // ValueListenableBuilder(
+                                //   valueListenable: _counter,
+                                //   builder: (BuildContext context, value, Widget? detail1) {
+                                //     return chat();
+                                //   },
+                                // ),
                               ]),
                             ),
                           ),
