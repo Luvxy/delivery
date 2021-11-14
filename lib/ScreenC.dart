@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:screena/ScreenB.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:screena/provider/providerC.dart';
 import 'chat.dart';
 
 class ScreenC extends StatefulWidget {
@@ -29,28 +31,31 @@ class _ScreenCState extends State<ScreenC> {
         title: Text('배달대기목록'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Builder(builder: (context) {
-        return Center(
-          child: ListView(
-            padding: const EdgeInsets.all(10),
-            children: [
-              Expanded(
-                child:ListView.builder(
-                  // reverse: true,
-                  itemBuilder: (context, index){
-                    return _chat[index];
-                  },
-                  itemCount: _chat.length,
+      body: ChangeNotifierProvider<domo>(
+        create: (_) => domo(),
+        child: Builder(builder: (context) {
+          return Center(
+            child: ListView(
+              padding: const EdgeInsets.all(10),
+              children: [
+                Expanded(
+                  child:ListView.builder(
+                    // reverse: true,
+                    itemBuilder: (context, index){
+                      return _chat[index];
+                    },
+                    itemCount: _chat.length,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        );
-      }),
+              ],
+            ),
+          );
+        }),
+      ),
 
     );
   }
-  void _sendText(String text){
+  void sendText(){
     setState(() {
       chat newChat = chat();
       _chat.insert(0, newChat);

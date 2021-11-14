@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:screena/provider/provider.dart';
 import 'ScreenA.dart';
 import 'ScreenB.dart';
 import 'ScreenC.dart';
@@ -20,8 +22,16 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'logins/page/changeId.dart';
 
 
-
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Counts()),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
 

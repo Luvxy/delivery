@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:screena/provider/providerC.dart';
 import 'ScreenB.dart';
 import 'detail1.dart';
 
@@ -12,29 +14,32 @@ class chat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Id or Name'),
-                Text(''),
-              ],
+    return ChangeNotifierProvider<domo>(
+      create: (_) => domo(),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Id or Name'),
+                  Text(''),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: 16,
-          ),
-          RaisedButton(
-            child: Text('상세보기'),
-            onPressed: () {
-              Navigator.pushNamed(context, '/detail1');
-            },
-          ),
-        ],
+            SizedBox(
+              width: 16,
+            ),
+            RaisedButton(
+              child: Text('상세보기'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/detail1');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
