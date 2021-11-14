@@ -7,6 +7,26 @@ import 'dart:io';
 
 class ScreenI extends StatelessWidget {
 
+  Future<void> _showMyDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('delivery@handong.edu로 문의주세요.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('확인'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,35 +38,20 @@ class ScreenI extends StatelessWidget {
         ),
         body: ListView(padding: const EdgeInsets.all(15.0), children: [
           Container(
-              height: 100,
+              height: 50,
               color: Colors.grey,
               padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/dawny.jpg'),
-                    backgroundColor: Colors.white,
-                    radius: 40.0,
-                  ),
                   SizedBox(
-                    width: 20.0,
+                    width: 10.0,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        '홍길동 2xxxxxxx',
-                        style:
-                        TextStyle(color: Colors.black, letterSpacing: 2.0),
-                      ),
-                      Text(
-                        '관련학부',
-                        style:
-                        TextStyle(color: Colors.black, letterSpacing: 2.0),
-                      ),
-                      Text(
-                        '010-xxxx-xxxx',
+                        '${FirebaseAuth.instance.currentUser!.email}',
                         style:
                         TextStyle(color: Colors.black, letterSpacing: 2.0),
                       ),
@@ -54,46 +59,7 @@ class ScreenI extends StatelessWidget {
                   ),
                 ],
               )),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Container(
-                  width: 370,
-                  height: 50,
-                  child: RaisedButton(
-                      color: Colors.white,
-                      child: Text(
-                        '프로필 사진 변경',
-                        style: TextStyle(color: Colors.black87, fontSize: 20),
-                      ),
-                      onPressed: () {
 
-                      }),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Container(
-                  width: 370,
-                  height: 50,
-                  child: RaisedButton(
-                      color: Colors.white,
-                      child: Text(
-                        '닉네임 변경',
-                        style: TextStyle(color: Colors.black87, fontSize: 20),
-                      ),
-                      onPressed: () {
-
-                      }),
-                ),
-              ),
-            ],
-          ),
           Column(
             children: [
               Padding(
@@ -128,7 +94,7 @@ class ScreenI extends StatelessWidget {
                         style: TextStyle(color: Colors.black87, fontSize: 20),
                       ),
                       onPressed: () {
-
+                        _showMyDialog(context);
                       }),
                 ),
               ),
@@ -145,4 +111,5 @@ class ScreenI extends StatelessWidget {
           ),
         ]));
   }
+
 }

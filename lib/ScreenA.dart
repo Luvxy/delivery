@@ -17,22 +17,15 @@ class ScreenA extends StatelessWidget {
           padding: EdgeInsets.zero, 
           children: <Widget>[
             UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/dawny.jpg'),
-                backgroundColor: Colors.white,
-              ),
+
               otherAccountsPictures: <Widget>[
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/moon.jpg'),
-                  backgroundColor: Colors.white,
-                ),
                 // CircleAvatar(
                 //   backgroundImage: AssetImage('assets/moon.jpg'),
                 //   backgroundColor: Colors.white,
                 //   ),
               ],
-              accountName: Text('userName'),
-              accountEmail: Text('${FirebaseAuth.instance.currentUser!.email}'),
+              accountName: Text('${FirebaseAuth.instance.currentUser!.email}'),
+              accountEmail: Text(''),
               onDetailsPressed: () {
                 print('arrow is clicked');
               },

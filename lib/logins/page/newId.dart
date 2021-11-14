@@ -47,6 +47,7 @@ class newId extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("회원가입"),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Builder(
         builder: (context) {
