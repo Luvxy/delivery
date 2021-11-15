@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: Colors.deepPurpleAccent,
         accentColor: Colors.lightBlueAccent,
         brightness: Brightness.light,
-        fontFamily: 'DoHyeon',
+        fontFamily: 'IBMPlexSansKR',
       ),
 
       initialRoute: '/log',
