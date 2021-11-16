@@ -29,11 +29,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.green,
-        accentColor: Colors.tealAccent,
+      theme: ThemeData(primaryColor: Colors.deepPurpleAccent,
+        accentColor: Colors.lightBlueAccent,
         brightness: Brightness.light,
-        fontFamily: 'Montserrat',
+        fontFamily: 'IBMPlexSansKR',
       ),
+
       initialRoute: '/log',
       routes: {
         '/log' : (context) => login(),

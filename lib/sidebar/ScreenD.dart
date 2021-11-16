@@ -21,7 +21,7 @@ class ScreenD extends StatelessWidget {
                     width: 370,
                     height: 260,
                     child: RaisedButton(
-                        color: Theme.of(context).accentColor,
+
                         child: Image.asset('assets/1.png',fit: BoxFit.contain,),
                         onPressed: () {Navigator.pushNamed(context, '/d1');}),
                   ),
@@ -36,7 +36,7 @@ class ScreenD extends StatelessWidget {
                     width: 370,
                     height: 260,
                     child: RaisedButton(
-                        color: Theme.of(context).accentColor,
+
                         child: Text(
                           '공지사항',
                           style: TextStyle(color: Colors.black87, fontSize: 20),
@@ -54,7 +54,7 @@ class ScreenD extends StatelessWidget {
                     width: 370,
                     height: 260,
                     child: RaisedButton(
-                        color: Theme.of(context).accentColor,
+
                         child: Text(
                           '공지사항',
                           style: TextStyle(color: Colors.black87, fontSize: 20),

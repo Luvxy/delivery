@@ -95,7 +95,10 @@ class ScreenA extends StatelessWidget {
                           FirebaseAuth.instance.signOut();
                           Navigator.of(context).pop();
                         },
-                        child: Text("로그아웃")),
+                        child: Text(("로그아웃"),
+                  style: TextStyle(
+                  color: Colors.white, fontSize: 20),
+            ),),
                   ],
                 ),
               ),
